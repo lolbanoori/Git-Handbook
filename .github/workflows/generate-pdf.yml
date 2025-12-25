@@ -1,0 +1,52 @@
+name: Build PDF Cheat Sheet
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Pandoc & LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-extra-utils texlive-latex-extra
+
+      - name: Combine Markdown Files
+        run: |
+          # We manually specify order to ensure the PDF reads like a book
+          cat src/commands/01-basics.md \
+              src/commands/02-branching-and-remote.md \
+              src/workflows/team-ops-manual.md \
+              src/workflows/merge-conflicts.md \
+              src/workflows/pull-requests.md \
+              src/workflows/code-reviews.md \
+              src/concepts/sha1-integrity.md \
+              src/concepts/glossary.md \
+              > combined_cheat_sheet.md
+
+      - name: Generate PDF
+        run: |
+          pandoc combined_cheat_sheet.md \
+            -o Git_Cheat_Sheet.pdf \
+            --toc \
+            --toc-depth=2 \
+            -V geometry:margin=1in \
+            -V colorlinks=true \
+            -V linkcolor=blue \
+            -V urlcolor=blue \
+            --variable mainfont="DejaVu Sans" \
+            --pdf-engine=pdflatex
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Git-Cheat-Sheet-PDF
+          path: Git_Cheat_Sheet.pdf
+          retention-days: 90
