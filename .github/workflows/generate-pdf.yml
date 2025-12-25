@@ -29,7 +29,9 @@ jobs:
 
       - name: Combine Markdown Files
         run: |
-          cat src/commands/01-basics.md \
+          # Metadata MUST be first to generate the Title Page
+          cat metadata.yaml \
+              src/commands/01-basics.md \
               src/commands/02-branching-and-remote.md \
               src/workflows/team-ops-manual.md \
               src/workflows/merge-conflicts.md \

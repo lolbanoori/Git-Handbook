@@ -1,0 +1,12 @@
+---
+title: "The Git Cheat Sheet"
+author: "Zohair Banoori"
+date: "2025-07-28"
+geometry: "margin=1in"
+fontsize: 11pt
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Git Cheat Sheet}
+  - \fancyhead[R]{Zohair Banoori}
+---
