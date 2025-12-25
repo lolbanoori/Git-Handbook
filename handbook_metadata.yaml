@@ -1,13 +1,13 @@
 ---
-title: "The Git Cheat Sheet"
+title: "The Git Handbook"
 author: "Zohair Banoori"
 date: "07-28-2025"
-geometry: "margin=1in"
+geometry: "margin=0.75in"
 fontsize: 11pt
 header-includes:
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
-  - \fancyhead[L]{Git Cheat Sheet}
+  - \fancyhead[L]{Git Handbook}
   - \fancyhead[R]{Zohair Banoori}
   - \usepackage{sectsty}
   - \sectionfont{\centering\huge\bfseries}

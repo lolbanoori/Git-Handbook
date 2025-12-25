@@ -1,4 +1,4 @@
-name: Generate PDF
+name: Build Cheat Sheet
 
 on:
   push:
@@ -43,37 +43,23 @@ jobs:
           # Configure mermaid-filter to use our custom sandboxed wrapper
           echo '{ "executablePath": "/usr/bin/chrome-no-sandbox" }' > .puppeteer.json
 
-      - name: Combine Markdown Files
+      - name: Build Cheat Sheet
         run: |
-          # Variable for page break
-          PB=$(echo -e "\n\n\newpage\n\n")
-          
-          cat metadata.yaml \
-              src/commands/01-basics.md <(echo "$PB") \
-              src/commands/02-branching-and-remote.md <(echo "$PB") \
-              src/workflows/team-ops-manual.md <(echo "$PB") \
-              src/workflows/pull-requests.md <(echo "$PB") \
-              src/workflows/code-reviews.md <(echo "$PB") \
-              src/workflows/merge-conflicts.md <(echo "$PB") \
-              src/concepts/sha1-integrity.md <(echo "$PB") \
-              src/concepts/glossary.md \
-              > combined_cheat_sheet.md
+          cat cheatsheet_metadata.yaml \
+              src/commands/basics.md \
+              src/commands/branching-and-remote.md \
+              > cheatsheet_combined.md
 
-      - name: Generate PDF
-        run: |
-          pandoc combined_cheat_sheet.md \
+          pandoc cheatsheet_combined.md \
             -o Git_Cheat_Sheet.pdf \
             --filter mermaid-filter \
             --toc \
-            --toc-depth=2 \
-            -V geometry:margin=1in \
+            --toc-depth=1 \
             -V colorlinks=true \
-            -V linkcolor=blue \
-            -V urlcolor=blue \
             --variable mainfont="DejaVu Sans" \
             --pdf-engine=pdflatex
 
-      - name: Upload PDF
+      - name: Upload Cheat Sheet
         uses: actions/upload-artifact@v4
         with:
           name: git-cheat-sheet

@@ -32,3 +32,5 @@ You can merge pull requests by retaining the commits. Below is a list of pull re
 > **Key takeaways**
 >
 > Pull requests are a crucial tool you can use for efficiently capturing, implementing, and receiving approvals for changes. These capabilities are made possible through collaboration. Practicing pull requests can help you hone your skills and contribute to a project.
+
+\newpage

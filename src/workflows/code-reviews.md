@@ -32,3 +32,5 @@ Anyone with read access can review and suggest inline changes. Learn more about 
 > - Code reviews catch defects early and improve quality through collaboration.
 > - Review strategies should match project context—pair programming, async tools, email, or over-the-shoulder.
 > - Pull request reviews enable structured collaboration and code validation before merging.
+
+\newpage

@@ -89,3 +89,5 @@ git revert [commit]
 ```
 
 > Refer to "Git Basics - Undoing Things" for further details.
+
+\newpage

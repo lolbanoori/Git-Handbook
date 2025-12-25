@@ -1,0 +1,72 @@
+name: Build Handbook
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          # 1. Install Pandoc and full LaTeX distribution
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-extra-utils texlive-latex-extra
+
+          # 2. Install Google Chrome Stable manually (to avoid Snap issues)
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+
+          # 3. Create a Wrapper Script to FORCE --no-sandbox
+          # This acts as a proxy for Chrome, ensuring the flag is ALWAYS present
+          echo '#!/bin/bash' > chrome_wrapper
+          echo 'exec /usr/bin/google-chrome-stable --no-sandbox "$@"' >> chrome_wrapper
+          chmod +x chrome_wrapper
+          sudo mv chrome_wrapper /usr/bin/chrome-no-sandbox
+
+      - name: Install mermaid-filter
+        run: npm install --global mermaid-filter
+
+      - name: Configure Mermaid Filter
+        run: |
+          # Configure mermaid-filter to use our custom sandboxed wrapper
+          echo '{ "executablePath": "/usr/bin/chrome-no-sandbox" }' > .puppeteer.json
+
+      - name: Build Handbook
+        run: |
+          cat handbook_metadata.yaml \
+              src/commands/basics.md \
+              src/commands/branching-and-remote.md \
+              src/workflows/team-ops-manual.md \
+              src/workflows/pull-requests.md \
+              src/workflows/code-reviews.md \
+              src/workflows/merge-conflicts.md \
+              src/concepts/sha1-integrity.md \
+              src/concepts/glossary.md \
+              > handbook_combined.md
+
+          pandoc handbook_combined.md \
+            -o Git_Handbook.pdf \
+            --filter mermaid-filter \
+            --toc \
+            --toc-depth=2 \
+            -V colorlinks=true \
+            --variable mainfont="DejaVu Sans" \
+            --pdf-engine=pdflatex
+
+      - name: Upload Handbook
+        uses: actions/upload-artifact@v4
+        with:
+          name: git-handbook
+          path: Git_Handbook.pdf

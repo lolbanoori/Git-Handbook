@@ -1,0 +1,23 @@
+---
+title: "Git Cheat Sheet"
+author: "Zohair Banoori"
+date: "07-28-2025"
+geometry: "margin=0.5in"
+classoption: twocolumn
+fontsize: 10pt
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Git Cheat Sheet}
+  - \fancyhead[R]{Zohair Banoori}
+  - \usepackage{sectsty}
+  - \sectionfont{\centering\huge\bfseries}
+  - \subsectionfont{\large\bfseries}
+  - \usepackage{titling}
+  - \pretitle{\begin{center}\Huge\bfseries}
+  - \posttitle{\par\end{center}\vskip 0.5em}
+  - \preauthor{\begin{center}\Large\bfseries}
+  - \postauthor{\par\end{center}}
+  - \predate{\begin{center}\large}
+  - \postdate{\par\end{center}}
+---

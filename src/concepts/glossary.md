@@ -10,6 +10,8 @@
 - **Commit ID**: An identifier next to the word commit in the log.
 - **Commit message**: A summary and description with contextual information on the parts of the code or configuration of the commit change.
 - **Working directory**: The directory on your system where your project files reside and are modified before staging.
+
+
 - **Modified files**: A stage where changes have been made to a file, but they have not been stored or committed.
 - **Git staging area**: A file maintained by Git that contains all the information about what files and changes are going to go into the next commit.
 - **Stage files**: A stage where the changes to files are ready to be committed.
@@ -61,3 +63,5 @@
 - **SSH server**: A system that accepts incoming SSH connections, authenticates them, and establishes secure sessions.
 - **Private key**: A secret cryptographic key used to decrypt data encrypted with the corresponding public key.
 - **Public key**: A cryptographic structure used for secure communication and validating digital signatures.
+
+\newpage

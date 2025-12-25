@@ -1,13 +1,17 @@
-# Git Cheat Sheet
+# The Git Handbook
 
-[![Build PDF Cheat Sheet](https://github.com/lolbanoori/git-cheat-sheet/actions/workflows/generate-pdf.yml/badge.svg)](https://github.com/lolbanoori/git-cheat-sheet/actions/workflows/generate-pdf.yml)
+[![Build Status](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-pdf.yml/badge.svg)](https://github.com/lolbanoori/git-handbook/actions)
 
-A comprehensive Git cheat sheet covering essential commands, workflows, and terminology.  
-Intended for developers, students, and teams who want a quick reference for daily Git operations.
+A comprehensive **Docs-as-Code** project covering essential commands, workflows, and terminology.
+Intended for developers, students, and teams who want both deep knowledge and quick references.
 
-## 📥 Download PDF
-This project is **Docs-as-Code**. Every change is automatically compiled into a printable PDF.  
-👉 **[Click here to download the latest Git_Cheat_Sheet.pdf](https://github.com/lolbanoori/git-cheat-sheet/actions)** (Select the most recent run > Scroll down to "Artifacts").
+## 📥 Downloads
+This project automatically compiles two distinct documents for different needs:
+
+- **📘 [The Git Handbook](https://github.com/lolbanoori/git-handbook/actions)**: The complete comprehensive guide to Git workflows, theory, and team operations.
+- **📄 [The Git Cheat Sheet](https://github.com/lolbanoori/git-handbook/actions)**: A condensed, two-column quick-reference card for syntax and daily commands.
+
+*(Select the most recent run > Scroll down to "Artifacts" to find the files)*
 
 ---
 
@@ -34,17 +38,17 @@ This project is **Docs-as-Code**. Every change is automatically compiled into a 
 ---
 
 ## 📚 Acknowledgment
-Most of the content in this cheat sheet is based on the excellent material provided in the ***Google*** course **“Introduction to Git and GitHub”** on **Coursera**.  
+Most of the content in this cheat sheet is based on the excellent material provided in the ***Google*** course **“Introduction to Git and GitHub”** on **Coursera**.
 
 ---
 
 ## 🛡️ Maintenance & Feedback
-This repository is maintained by [me](https://github.com/lolbanoori). 
+This repository is maintained by [me](https://github.com/lolbanoori).
 To ensure consistency and quality control, direct Push access is restricted.
 
 **Found an error?**
 We use a structured process to handle corrections:
-1.  Go to the **[Issues Tab](https://github.com/lolbanoori/git-cheat-sheet/issues)**.
+1.  Go to the **[Issues Tab](https://github.com/lolbanoori/git-handbook/issues)**.
 2.  Click **New Issue**.
 3.  Choose the **🐛 Found an Error?** template.
 4.  Fill out the form with the location and correct text.

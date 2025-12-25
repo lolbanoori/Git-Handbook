@@ -24,3 +24,5 @@ graph TD
 > **Key takeaways**
 >
 > It is important to effectively resolve merge conflicts because local changes cannot be made to Git until the merge conflicts have been locally resolved. Once all conflicts have been resolved, changes can be pushed to Git and merged in a pull request.
+
+\newpage
