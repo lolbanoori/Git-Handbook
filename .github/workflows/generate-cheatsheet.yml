@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -49,7 +52,6 @@ jobs:
           cat cheatsheet_metadata.yaml > cheatsheet_source.md
 
           # 2. Add filtered "Basics" (Remove "Installation & GUIs")
-          # Remove from header "Installation & GUIs" up to "Setup"
           sed '/^## Installation & GUIs/,/^## Setup/{/^## Setup/!d;}' src/commands/basics.md > basics_filtered.md
           
           # 3. Filter out Mermaid blocks from all source files and append
@@ -57,9 +59,6 @@ jobs:
             sed '/^```mermaid/,/^```/d' "$f" >> cheatsheet_source.md
             echo -e "\n\n" >> cheatsheet_source.md
           done
-          
-          # Add Glossary (no mermaid there usually, but safe to include)
-          cat src/concepts/glossary.md >> cheatsheet_source.md
 
           pandoc cheatsheet_source.md \
             -o Git_Cheat_Sheet.pdf \
@@ -72,4 +71,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: git-cheat-sheet
-          path: Git_Cheat_Sheet.pdf
+
+      - name: Publish Cheat Sheet to Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "Git_Cheat_Sheet.pdf"
+          tag: latest
+          name: "Latest Build"
+          body: "Auto-generated build from main branch."
+          allowUpdates: true
+          replacesArtifacts: true
+          makeLatest: true
+          token: ${{ secrets.GITHUB_TOKEN }}

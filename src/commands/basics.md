@@ -88,6 +88,4 @@ git revert [commit]
 # Revert changes by creating a new commit that undoes a specific commit
 ```
 
-> Refer to "Git Basics - Undoing Things" for further details.
-
 \newpage

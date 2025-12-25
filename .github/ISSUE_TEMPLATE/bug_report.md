@@ -1,5 +1,5 @@
 ---
-name: 🐛 Found an Error?
+name: Found an Error?
 about: Report an incorrect command, typo, or outdated workflow.
 title: "[ERR]: "
 labels: "triage"
