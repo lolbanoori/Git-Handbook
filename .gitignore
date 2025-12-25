@@ -1,0 +1,17 @@
+# OS Generated Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+
+# PDF/Doc generation artifacts
+site/
+build/
+*.pdf
+*.docx
+
+# Local files
+local/
