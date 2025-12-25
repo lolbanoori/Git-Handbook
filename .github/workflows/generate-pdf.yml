@@ -45,14 +45,17 @@ jobs:
 
       - name: Combine Markdown Files
         run: |
+          # Variable for page break
+          PB=$(echo -e "\n\n\newpage\n\n")
+          
           cat metadata.yaml \
-              src/commands/01-basics.md \
-              src/commands/02-branching-and-remote.md \
-              src/workflows/team-ops-manual.md \
-              src/workflows/merge-conflicts.md \
-              src/workflows/pull-requests.md \
-              src/workflows/code-reviews.md \
-              src/concepts/sha1-integrity.md \
+              src/commands/01-basics.md <(echo "$PB") \
+              src/commands/02-branching-and-remote.md <(echo "$PB") \
+              src/workflows/team-ops-manual.md <(echo "$PB") \
+              src/workflows/pull-requests.md <(echo "$PB") \
+              src/workflows/code-reviews.md <(echo "$PB") \
+              src/workflows/merge-conflicts.md <(echo "$PB") \
+              src/concepts/sha1-integrity.md <(echo "$PB") \
               src/concepts/glossary.md \
               > combined_cheat_sheet.md
 
