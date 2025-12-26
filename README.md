@@ -1,7 +1,6 @@
 # The Git Handbook
 
-[![Cheat Sheet Build Status](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-cheatsheet.yml/badge.svg)](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-cheatsheet.yml)
-[![Handbook Build Status](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-handbook.yml/badge.svg)](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-handbook.yml)
+[![Build Status](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-pdf.yml/badge.svg)](https://github.com/lolbanoori/git-handbook/actions/workflows/generate-pdf.yml)
 
 A practical field manual for version control. This repo covers everything from essential CLI commands to complex collaboration strategies.
 Intended for developers, students, and teams who want both deep knowledge and quick references.
